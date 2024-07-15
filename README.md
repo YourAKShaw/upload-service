@@ -1,14 +1,47 @@
-# microservice-template-nodejs-js
-A backend template made using Node.js, Express.js, and JavaScript for building microservices.
+# ⬆️ Upload Service
 
-## Usage
+A simple ⬆️ upload service built using Node.js, Express.js, and JavaScript using my template [microservice-template-nodejs-js](https://github.com/YourAKShaw/microservice-template-nodejs-js). 
 
-```
-# clone the repo template and rename the resultant folder
+## Usage && Notes
 
-# HTTPS
-git clone https://github.com/YourAKShaw/microservice-template-nodejs-js.git <your-directory-name>
 
-# SSH
-git clone git@github.com:YourAKShaw/microservice-template-nodejs-js.git <your-directory-name>
+### Sample 
+
+- Contains [Sample](./src/sample/) module from [microservice-template-nodejs-js](https://github.com/YourAKShaw/microservice-template-nodejs-js).
+- Since the [Sample](./src/sample/) module makes use of the MongoClient from [mongodb](https://www.mongodb.com/resources/languages/mongodb-with-nodejs), it requires the MONGODB_URI in the .env, otherwise the server won't start. One way to bypass this, in case you don't need to checkout the Sample module and use only the Upload module, is to commenting the following piece of code from [sample.model.js](./src/sample/sample.model.js).
+
+  ```js
+  const sampleCollection = await (async () => {
+    const db = await getDb();
+    return db.collection('samples');
+  })(); // Immediately Invoked Function Expression (IIFE) for collection creation
+  ```
+
+### Upload
+
+Two types of upload supported:
+
+1. File Attachment
+2. File URL
+
+#### File Attachment
+
+**POST** _/api/upload_
+
+##### form-data
+
+| Key               | Value        |
+|-------------------|--------------|
+| fieldName (File)  | [attachment] |
+
+#### File URL
+
+**POST** _/api/upload_
+
+##### raw
+
+```json
+{
+  "fileUrl": "<fileUrl>"
+}
 ```
