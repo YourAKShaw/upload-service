@@ -2,6 +2,7 @@ import express from 'express';
 import createHttpError from 'http-errors';
 import ApiResponse from './common/ApiResponse.js';
 import sampleRoutes from './sample/sample.route.js';
+import uploadRoutes from './upload/upload.route.js';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/samples', sampleRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // 404 handler
 app.use((req, res, next) => {
