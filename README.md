@@ -55,7 +55,7 @@ Two types of upload supported:
 
 ## Get to know me 😉
 
-⚪ Author: [Ayush Kumar Shaw](@YourAKShaw)
+⚪ Author: [Ayush Kumar Shaw](https://www.github.com/YourAKShaw)
 
 ⚪ Website: [yourakshaw.com](https://www.yourakshaw.com)
 
